@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<div class="results">
+  <div class="container">
+    <div class="container jumbotron">
+      <h1>Results:</h1>
+      <a href="/" class="btn btn-primary"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search again </a>
+    </div>
+    <% if (data.Response == "True"){%>
+      <ul class="list-group text-center">
+          <% data.Search.forEach(function(movie){ %>
+              <li class="list-group-item"> <h3><strong><%= movie.Title %></strong> - <em>(<%= movie.Year %>)</em></h3> <img class="rounded mx-auto d-block" src="<%= movie.Poster %>" alt="Poster of <%= movie.Title %>"> </li>
+              
+          <% }) %>
+      </ul>
+    <% } else {%>
+      <div class="container">
+        <div class="alert alert-danger" role="alert"> <strong>Sorry</strong> movie not found!!</div>
+      </div>
+      
+    <% }%>
+  
+  </div>
+
+</div>
+<%- include("partials/footer") %>
